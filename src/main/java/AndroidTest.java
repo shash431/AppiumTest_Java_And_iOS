@@ -1,37 +1,37 @@
 import base.AppDriver;
+
 import base.Util;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.time.Duration;
-import java.util.List;
 
+/*@Listeners({ TestListener.class })
+@Epic("Regression Tests")
+@Feature("Login Tests")*/
 public class AndroidTest {
 
     public static AppiumDriver<MobileElement> driver;
-    public static DesiredCapabilities cap;
+    public static DesiredCapabilities desiredCapabilities;
 
     public static void main(String[] args) throws InterruptedException, MalformedURLException {
 
-        cap = new DesiredCapabilities();
-        cap.setCapability("platformName", "Android");
-        cap.setCapability("deviceName", "emulator-5554");
-        cap.setCapability("automationName", "UiAutomator2");
+        desiredCapabilities = new DesiredCapabilities();
+        desiredCapabilities.setCapability("platformName", "Android");
+        desiredCapabilities.setCapability("deviceName", "emulator-5554");
+        desiredCapabilities.setCapability("automationName", "UiAutomator2");
         //cap.setCapability("appPackage", "com.android.calculator2");
         //cap.setCapability("appActivity", ".Calculator");
         //cap.setCapability("appPackage", "com.google.android.dialer");
         //cap.setCapability("appActivity", ".DialtactsActivity");
-        cap.setCapability("appPackage", "com.swaglabsmobileapp");
-        cap.setCapability("appActivity", ".MainActivity");
+        desiredCapabilities.setCapability("appPackage", "com.swaglabsmobileapp");
+        desiredCapabilities.setCapability("appActivity", ".MainActivity");
 
-        driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
+        driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), desiredCapabilities);
         AppDriver.setDriver(driver);
         Thread.sleep(1000);
 

@@ -12,21 +12,21 @@ import java.net.URL;
 public class IOSTest {
 
     public static AppiumDriver<MobileElement> driver;
-    public static DesiredCapabilities cap;
+    public static DesiredCapabilities desiredCapabilities;
 
     public static void main(String[] args) throws InterruptedException, MalformedURLException {
 
-        cap = new DesiredCapabilities();
-        cap.setCapability("platformName", "iOS");
-        cap.setCapability("deviceName", "iPhone 11");
-        cap.setCapability("automationName", "XCUITest");
-        cap.setCapability("platformVersion", "13.5");
+        desiredCapabilities = new DesiredCapabilities();
+        desiredCapabilities.setCapability("platformName", "iOS");
+        desiredCapabilities.setCapability("deviceName", "iPhone 11");
+        desiredCapabilities.setCapability("automationName", "XCUITest");
+        desiredCapabilities.setCapability("platformVersion", "13.5");
         //cap.setCapability("bundleId", "com.SamadiPour.SimpleCalculator");
         //cap.setCapability("bundleId", "com.example.apple-samplecode.UICatalog");
-        cap.setCapability("bundleId", "org.reactjs.native.example.SwagLabsMobileApp");
+        desiredCapabilities.setCapability("bundleId", "org.reactjs.native.example.SwagLabsMobileApp");
 
 
-        driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
+        driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), desiredCapabilities);
         AppDriver.setDriver(driver);
 
         Thread.sleep(1000);
